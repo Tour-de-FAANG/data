@@ -1,0 +1,54 @@
+{
+  "title": "Problems list",
+  "description": "A company list of coding problems.",
+  "type": "object",
+  "properties": {
+    "date": {
+      "description": "The date the snapshot was taken.",
+      "type": "integer"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "A problem object",
+        "description": "An object describing problem entry.",
+        "properties": {
+          "c": {
+            "description": "Problem code",
+            "type": "integer"
+          },
+          "n": {
+            "description": "Problem name",
+            "type": "string"
+          },
+          "u": {
+            "description": "Problem url",
+            "type": "string"
+          },
+          "l": {
+            "description": "Problem level",
+            "type": "integer"
+          },
+          "f": {
+            "description": "Problem frequency",
+            "type": "number"
+          }
+        },
+        "required": [
+          "c",
+          "n",
+          "u",
+          "l",
+          "f"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "date",
+    "problems"
+  ]
+}
