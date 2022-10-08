@@ -1,0 +1,35 @@
+name: JSON validator
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+
+      - name: Install JSON-Spec
+        run: pip install json-spec
+
+      - name: Validate JSONs
+        run: |
+          json validate --schema-file=./problems/schema.json --document-file=./problems/meta.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/apple.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/amazon.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/netflix.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/google.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/microsoft.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/uber.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/lyft.json
+          json validate --schema-file=./problems/schema.json --document-file=./problems/airbnb.json
