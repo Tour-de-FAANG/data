@@ -1,6 +1,8 @@
 
 ## Tour de FAANG
 
+[![JSON validator](https://github.com/Tour-de-FAANG/data/actions/workflows/json_validator.yml/badge.svg?branch=master)](https://github.com/Tour-de-FAANG/data/actions/workflows/json_validator.yml)
+
 Yet another FAANG interview preparation guide.
 
 ## :green_book: License
