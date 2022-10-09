@@ -19,17 +19,17 @@ jobs:
         with:
           python-version: '3.10' 
 
-      - name: Install JSON-Spec
-        run: pip install json-spec
+      - name: Install jsonschema
+        run: pip install jsonschema
 
       - name: Validate JSONs
         run: |
-          json validate --schema-file=./problems/schema.json --document-file=./problems/meta.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/apple.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/amazon.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/netflix.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/google.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/microsoft.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/uber.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/lyft.json
-          json validate --schema-file=./problems/schema.json --document-file=./problems/airbnb.json
+          jsonschema --instance ./problems/meta.json ./problems/schema.json
+          jsonschema --instance ./problems/apple.json ./problems/schema.json
+          jsonschema --instance ./problems/amazon.json ./problems/schema.json
+          jsonschema --instance ./problems/netflix.json ./problems/schema.json
+          jsonschema --instance ./problems/google.json ./problems/schema.json
+          jsonschema --instance ./problems/microsoft.json ./problems/schema.json
+          jsonschema --instance ./problems/uber.json ./problems/schema.json
+          jsonschema --instance ./problems/lyft.json ./problems/schema.json
+          jsonschema --instance ./problems/airbnb.json ./problems/schema.json
